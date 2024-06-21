@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D playerRigidBody;
+    private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private float dirX = 0f;
@@ -16,15 +16,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
 
-    private void OnEnable()
+    private void Start()
     {
+        playerRigidBody = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        MoveAction.Enable();
     }
     private void Update()
     {
-        move = MoveAction.ReadValue<Vector2>();
         dirX = Input.GetAxisRaw("Horizontal");
         playerRigidBody.velocity = new Vector2(dirX * playerSpeed, playerRigidBody.velocity.y);
 
@@ -32,12 +31,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 position = playerRigidBody.position + move * playerSpeed * Time.deltaTime;
-        playerRigidBody.MovePosition(position);
     }
 
     private bool IsGrounded()
