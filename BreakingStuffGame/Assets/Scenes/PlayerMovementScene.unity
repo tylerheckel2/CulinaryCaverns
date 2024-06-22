@@ -297,55 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7464cb43e5999ac488c1bb8bc9c18407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 317cc31c-9ba6-4474-9d9a-f59bf9e45ca8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: a42ae2a2-7d9e-4aa4-9822-ec11eda584d2
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 45bd7c0b-20c3-45e1-8a09-77eac25d12a0
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 1ddeb64c-7066-48fb-bb78-fc523873dd07
-      m_Path: 
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: fc5dd6d6-4bda-4f43-985c-68dd3fb6926c
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: a3416035-e272-4d8e-89e5-c9bda38da8ed
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
+  mousePos: {x: 0, y: 0}
+  terrainhandler: {fileID: 2011076881}
   playerSpeed: 7
   jumpForce: 12
   jumpableGround:
@@ -53935,6 +53888,7 @@ GameObject:
   - component: {fileID: 2011076879}
   - component: {fileID: 2011076878}
   - component: {fileID: 2011076877}
+  - component: {fileID: 2011076881}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Ground
@@ -67585,6 +67539,20 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &2011076881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011076873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457c7aa611e45444087a52d3d408c7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldSize: 100
+  chunkSize: 16
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
