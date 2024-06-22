@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Vector2Int mousePos;
+    public TerrainHandler terrainhandler;
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private float dirX = 0f;
-    public InputAction MoveAction;
-    Vector2 move;
+    private bool hit;
+    
+
     [SerializeField] private float playerSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
@@ -24,8 +28,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        mousePos.x = Mathf.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - 0.5f);
+        mousePos.y = Mathf.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - 0.5f);
+
         dirX = Input.GetAxisRaw("Horizontal");
         playerRigidBody.velocity = new Vector2(dirX * playerSpeed, playerRigidBody.velocity.y);
+
+        hit = Input.GetMouseButton(0);
+        if (hit)
+        {
+            terrainhandler.RemoveTile(mousePos.x, mousePos.y);
+        }
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
