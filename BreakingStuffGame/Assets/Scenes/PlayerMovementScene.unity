@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0}
-  terrainhandler: {fileID: 2011076881}
+  terrainhandler: {fileID: 0}
   playerSpeed: 7
   jumpForce: 12
   jumpableGround:
@@ -53888,7 +53888,6 @@ GameObject:
   - component: {fileID: 2011076879}
   - component: {fileID: 2011076878}
   - component: {fileID: 2011076877}
-  - component: {fileID: 2011076881}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Ground
@@ -67539,20 +67538,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &2011076881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011076873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457c7aa611e45444087a52d3d408c7a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldSize: 100
-  chunkSize: 16
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

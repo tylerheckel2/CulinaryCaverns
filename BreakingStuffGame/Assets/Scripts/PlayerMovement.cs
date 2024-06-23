@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private float dirX = 0f;
     private bool hit;
+    private bool onGround;
     
 
     [SerializeField] private float playerSpeed = 7f;
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             terrainhandler.RemoveTile(mousePos.x, mousePos.y);
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && onGround)
         {
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
@@ -51,4 +52,19 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            onGround = false;
+        }
+    }
 }
