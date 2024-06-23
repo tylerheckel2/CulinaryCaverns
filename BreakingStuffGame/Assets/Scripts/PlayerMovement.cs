@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             terrainhandler.RemoveTile(mousePos.x, mousePos.y);
         }
 
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
