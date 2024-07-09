@@ -166,9 +166,52 @@ public class TerrainHandler : MonoBehaviour
         }
     }
 
+    void GenerateTree(int x, int y)
+    {
+        int treeHeight = Random.Range(minTreeHeight, maxTreeHeight);
+        for (int i = 0; i < treeHeight; i++)
+        {
+            PlaceTiler(tileAtlas.log.tileSprite, x, y + i);
+        }
+
+        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 1);
+        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 2);
+
+        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight + 1);
+
+        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight + 1);
+    }
+
+    public void PlaceTiler(Sprite tileSprite, int x, int y)
+    {
+        if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
+        {
+            GameObject newTile = new GameObject();
+
+            int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
+            //float chunkCoord = (Mathf.Round(x / chunkSize) * chunkSize);
+            chunkCoord /= chunkSize;
+            newTile.transform.parent = worldChunks[chunkCoord].transform;
+
+            newTile.AddComponent<SpriteRenderer>();
+            newTile.AddComponent<BoxCollider2D>();
+            newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
+            newTile.tag = "Ground";
+            newTile.GetComponent<SpriteRenderer>().sprite = tileSprite;
+            newTile.name = tileSprite.name;
+            newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
+
+            worldTiles.Add(newTile.transform.position - (Vector3.one * 0.5f));
+            worldTileObjects.Add(newTile);
+        }
+    }
+
     public void PlaceTile(Sprite[] tileSprites, int x, int y, bool backgroundElement)
     {
-        if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x<= worldSize && y >= 0 && y <= worldSize)
+        if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
             GameObject newTile = new GameObject();
 
@@ -196,43 +239,5 @@ public class TerrainHandler : MonoBehaviour
             worldTileObjects.Add(newTile);
 
         }
-    }
-
-    void GenerateTree(int x, int y)
-    {
-        int treeHeight = Random.Range(minTreeHeight, maxTreeHeight);
-        for (int i = 0; i < treeHeight; i++)
-        {
-            PlaceTiler(tileAtlas.log.tileSprite, x, y + i);
-        }
-
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 1);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 2);
-
-        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight + 1);
-
-        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight + 1);
-    }
-
-    public void PlaceTiler(Sprite tileSprite, int x, int y)
-    {
-        GameObject newTile = new GameObject();
-
-        float chunkCoord = (Mathf.Round(x / chunkSize) * chunkSize);
-        chunkCoord /= chunkSize;
-        newTile.transform.parent = worldChunks[(int)chunkCoord].transform;
-
-        newTile.AddComponent<SpriteRenderer>();
-        newTile.AddComponent<BoxCollider2D>();
-        newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
-        newTile.tag = "Ground";
-        newTile.GetComponent<SpriteRenderer>().sprite = tileSprite;
-        newTile.name = tileSprite.name;
-        newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
-
-        worldTiles.Add(newTile.transform.position - (Vector3.one * 0.5f));
     }
 }
