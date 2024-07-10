@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 1089672867}
   - component: {fileID: 1089672866}
   - component: {fileID: 1089672865}
+  - component: {fileID: 1089672869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -401,6 +402,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.032756172, y: -0.14657721}
   m_Size: {x: 0.40838242, y: 0.99399567}
   m_Direction: 0
+--- !u!95 &1089672869
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089672860}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c8ad5446cb8bbc499f5a27355f41860, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1230793811
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +821,7 @@ GameObject:
   - component: {fileID: 2011076878}
   - component: {fileID: 2011076877}
   - component: {fileID: 2011076881}
+  - component: {fileID: 2011076882}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Ground
@@ -49966,6 +49989,27 @@ MonoBehaviour:
   numTwoSize: 0.7
   numOneSpread: {fileID: 1733152612}
   numTwoSpread: {fileID: 1941538327}
+--- !u!95 &2011076882
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011076873}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8bae4fe099c40664abc9378ab073ea08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

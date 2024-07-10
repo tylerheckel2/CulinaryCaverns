@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
+    private Animator anim;
     private float dirX = 0f;
     private bool hit;
     private bool onGround;
@@ -21,11 +22,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
 
+    private enum MovementState { idle, running, jumping, falling }
+
     private void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -45,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
+
+        UpdateAnimationState();
     }
 
     private bool IsGrounded()
@@ -67,5 +73,27 @@ public class PlayerMovement : MonoBehaviour
         {
             onGround = false;
         }
+    }
+
+    private void UpdateAnimationState()
+    {
+        MovementState state;
+
+        if (dirX > 0f)
+        {
+            state = MovementState.running;
+            sprite.flipX = false;
+        }
+        else if (dirX < 0f)
+        {
+            state = MovementState.running;
+            sprite.flipX = true;
+        }
+        else
+        {
+            state = MovementState.idle;
+        }
+
+        anim.SetInteger("State", (int)state);
     }
 }
