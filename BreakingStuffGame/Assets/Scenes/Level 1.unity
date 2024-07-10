@@ -203,8 +203,8 @@ Transform:
   m_GameObject: {fileID: 1089672860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.1, y: 34.1, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -35.76, y: 32.655, z: -5.9982}
+  m_LocalScale: {x: 0.4833299, y: 0.4833299, z: 0.4833299}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1230793814}
@@ -251,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: -1750321135
   m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 9a6d08235847f354888aa9400ad2cb6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4889ea45681fc444b6539f4f33e632f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -364,8 +364,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035510384, y: -0.14701462}
-  m_Size: {x: 0.41389084, y: 0.99487054}
+  m_Offset: {x: -0.13086362, y: -0.5558092}
+  m_Size: {x: 1.4193093, y: 4.0083356}
   m_Direction: 0
 --- !u!70 &1089672868
 CapsuleCollider2D:
@@ -399,8 +399,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032756172, y: -0.14657721}
-  m_Size: {x: 0.40838242, y: 0.99399567}
+  m_Offset: {x: -0.13330168, y: -0.555512}
+  m_Size: {x: 1.4212651, y: 4.0077276}
   m_Direction: 0
 --- !u!95 &1089672869
 Animator:
@@ -821,7 +821,6 @@ GameObject:
   - component: {fileID: 2011076878}
   - component: {fileID: 2011076877}
   - component: {fileID: 2011076881}
-  - component: {fileID: 2011076882}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Ground
@@ -49929,7 +49928,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 2011076873}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f587b8d862e74994e93da363762a106a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -49989,27 +49988,6 @@ MonoBehaviour:
   numTwoSize: 0.7
   numOneSpread: {fileID: 1733152612}
   numTwoSpread: {fileID: 1941538327}
---- !u!95 &2011076882
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011076873}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8bae4fe099c40664abc9378ab073ea08, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
