@@ -15,7 +15,7 @@ TagManager:
   - Ground
   - Background
   - Player
-  - 
+  - Over Background
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 4261434649
+    locked: 0
+  - name: Over Background
+    uniqueID: 3959522133
     locked: 0
   - name: Terrain
     uniqueID: 2715386143

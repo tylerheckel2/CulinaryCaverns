@@ -15,7 +15,7 @@ public class TerrainHandler : MonoBehaviour
 
     [Header("Generation Settings")]
     public bool generateCaves = true;
-    public int worldSize = 100;
+    public int worldSize = 125;
     public int chunkSize = 16;
     public float surfaceValue = 0.25f;
     public int dirtLayerHeight = 5;
@@ -59,6 +59,21 @@ public class TerrainHandler : MonoBehaviour
         CreateChunks();
         GenerateTerrain();
     }
+
+    //void RefreshChunks()
+    //{
+        //for (int i = 0; i < worldChunks.Length; i++)
+        //{
+            //if (Mathf.Abs(i * chunkSize - player.transform.position.x) > Camera.main.orthographicSize)
+            //{
+                //worldChunks[i].SetActive(false);
+            //}
+            //else
+            //{
+                //worldChunks[i].SetActive(true);
+            //}
+        //}
+    //}
 
     public void GenerateTerrain()
     {
@@ -191,9 +206,12 @@ public class TerrainHandler : MonoBehaviour
         {
             GameObject newTile = new GameObject();
 
-            int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
-            //float chunkCoord = (Mathf.Round(x / chunkSize) * chunkSize);
-            chunkCoord /= chunkSize;
+            //int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
+            //chunkCoord /= chunkSize;
+
+            int chunkCoord = Mathf.FloorToInt((float)x / chunkSize);
+            chunkCoord = Mathf.Clamp(chunkCoord, 0, worldChunks.Length - 1);
+
             newTile.transform.parent = worldChunks[chunkCoord].transform;
 
             newTile.AddComponent<SpriteRenderer>();
