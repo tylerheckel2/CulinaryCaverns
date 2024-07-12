@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TerrainHandler : MonoBehaviour
 {
+    public PlayerMovement player;
+    public GameObject tileDrop;
+
     [Header("Tile Atlas")]
     public TileAtlas tileAtlas;
 
@@ -39,6 +42,8 @@ public class TerrainHandler : MonoBehaviour
     private GameObject[] worldChunks;
     private List<Vector2> worldTiles = new List<Vector2>();
     private List<GameObject> worldTileObjects = new List<GameObject>();
+
+    private List<TileClass> worldTileClasses = new List<TileClass>();
 
     //private void OnValidate()
 
@@ -178,6 +183,8 @@ public class TerrainHandler : MonoBehaviour
         if (worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
             Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
+            GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y), Quaternion.identity);
+            newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprite;
         }
     }
 
