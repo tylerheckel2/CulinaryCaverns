@@ -32,97 +32,109 @@ public class TerrainHandler : MonoBehaviour
     public Texture2D caveNoiseTexture;
 
     [Header("Ore Settings")]
-    public float numOneRarity;
+    public OreClass[] ores;
+    /*public float numOneRarity;
     public float numOneSize;
     public float numTwoRarity;
     public float numTwoSize;
     public Texture2D numOneSpread;
-    public Texture2D numTwoSpread;
+    public Texture2D numTwoSpread;*/
 
     private GameObject[] worldChunks;
+
     private List<Vector2> worldTiles = new List<Vector2>();
     private List<GameObject> worldTileObjects = new List<GameObject>();
-
     private List<TileClass> worldTileClasses = new List<TileClass>();
 
-    //private void OnValidate()
+    private void OnValidate()
+    {
+        caveNoiseTexture = new Texture2D(worldSize, worldSize);
+        ores[0].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[1].spreadTexture = new Texture2D(worldSize, worldSize);
+
+        GenerateNoiseTexture(caveFreq, surfaceValue, caveNoiseTexture);
+        //ores
+        GenerateNoiseTexture(ores[0].rarity, ores[0].size, ores[0].spreadTexture);
+        GenerateNoiseTexture(ores[1].rarity, ores[1].size, ores[1].spreadTexture);
+    }
 
     private void Start()
     {
-        if (caveNoiseTexture == null)
-        {
-            caveNoiseTexture = new Texture2D(worldSize, worldSize);
-            numOneSpread = new Texture2D(worldSize, worldSize);
-            numTwoSpread = new Texture2D(worldSize, worldSize);
-        }
+        caveNoiseTexture = new Texture2D(worldSize, worldSize);
+        ores[0].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[1].spreadTexture = new Texture2D(worldSize, worldSize);
 
         seed = Random.Range(-10000, 10000);
         GenerateNoiseTexture(caveFreq, surfaceValue, caveNoiseTexture);
         //ores
-        GenerateNoiseTexture(numOneRarity, numOneSize, numOneSpread);
-        GenerateNoiseTexture(numTwoRarity, numTwoSize, numTwoSpread);
+        GenerateNoiseTexture(ores[0].rarity, ores[0].size, ores[0].spreadTexture);
+        GenerateNoiseTexture(ores[1].rarity, ores[1].size, ores[1].spreadTexture);
         CreateChunks();
         GenerateTerrain();
     }
 
     //void RefreshChunks()
     //{
-        //for (int i = 0; i < worldChunks.Length; i++)
-        //{
-            //if (Mathf.Abs(i * chunkSize - player.transform.position.x) > Camera.main.orthographicSize)
-            //{
-                //worldChunks[i].SetActive(false);
-            //}
-            //else
-            //{
-                //worldChunks[i].SetActive(true);
-            //}
-        //}
+    //for (int i = 0; i < worldChunks.Length; i++)
+    //{
+    //if (Mathf.Abs(i * chunkSize - player.transform.position.x) > Camera.main.orthographicSize)
+    //{
+    //worldChunks[i].SetActive(false);
+    //}
+    //else
+    //{
+    //worldChunks[i].SetActive(true);
+    //}
+    //}
     //}
 
     public void GenerateTerrain()
     {
+        TileClass tileClass;
         for (int x = 0; x < worldSize; x++)
         {
             float height = Mathf.PerlinNoise((x + seed) * terrainFreq, seed * terrainFreq) * heightMultiplier + heightAddition;
-            
-            for (int y = 0; y < height; y++)
+
+            for (int y = 0; y < worldSize; y++)
             {
-                Sprite tileSprite;
+                if (y >= height)
+                {
+                    break;
+                }
                 if (y < height - dirtLayerHeight)
                 {
-                    if (numOneSpread.GetPixel(x, y).r > 0.5f)
+                    if (ores[0].spreadTexture.GetPixel(x, y).r > 0.5f)
                     {
-                        tileSprite = tileAtlas.numOne.tileSprite;
+                        tileClass = tileAtlas.numOne;
                     }
-                    else if (numTwoSpread.GetPixel(x, y).r > 0.5f)
+                    else if (ores[1].spreadTexture.GetPixel(x, y).r > 0.5f)
                     {
-                        tileSprite = tileAtlas.numTwo.tileSprite;
+                        tileClass = tileAtlas.numTwo;
                     }
                     else
                     {
-                        tileSprite = tileAtlas.stone.tileSprite;
+                        tileClass = tileAtlas.stone;
                     }
                 }
                 else if (y < height - 1)
                 {
-                    tileSprite = tileAtlas.dirt.tileSprite;
+                    tileClass = tileAtlas.dirt;
                 }
                 else
                 {
-                    tileSprite = tileAtlas.grass.tileSprite;
+                    tileClass = tileAtlas.grass;
                 }
 
                 if (generateCaves)
                 {
                     if (caveNoiseTexture.GetPixel(x, y).r > 0.5f)
                     {
-                        PlaceTiler(tileSprite, x, y);
+                        PlaceTiler(tileClass, x, y);
                     }
                 }
-                else  
+                else
                 {
-                    PlaceTiler(tileSprite, x, y);
+                    PlaceTiler(tileClass, x, y);
                 }
 
                 if (y >= height - 1)
@@ -144,7 +156,7 @@ public class TerrainHandler : MonoBehaviour
 
     public void GenerateNoiseTexture(float frequency, float limit, Texture2D noiseTexture)
     {
-        for (int x=0; x < noiseTexture.width; x++)
+        for (int x = 0; x < noiseTexture.width; x++)
         {
             for (int y = 0; y < noiseTexture.height; y++)
             {
@@ -183,8 +195,12 @@ public class TerrainHandler : MonoBehaviour
         if (worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
             Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
-            GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y), Quaternion.identity);
-            newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprite;
+            GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y + 0.5f), Quaternion.identity);
+            newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[0];
+
+            worldTileObjects.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
+            worldTileClasses.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
+            worldTiles.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
         }
     }
 
@@ -193,21 +209,21 @@ public class TerrainHandler : MonoBehaviour
         int treeHeight = Random.Range(minTreeHeight, maxTreeHeight);
         for (int i = 0; i < treeHeight; i++)
         {
-            PlaceTiler(tileAtlas.log.tileSprite, x, y + i);
+            PlaceTiler(tileAtlas.log, x, y + i);
         }
 
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 1);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x, y + treeHeight + 2);
+        PlaceTiler(tileAtlas.leaf, x, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf, x, y + treeHeight + 1);
+        PlaceTiler(tileAtlas.leaf, x, y + treeHeight + 2);
 
-        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight + 1);
+        PlaceTiler(tileAtlas.leaf, x - 1, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf, x - 1, y + treeHeight + 1);
 
-        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight);
-        PlaceTiler(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight + 1);
+        PlaceTiler(tileAtlas.leaf, x + 1, y + treeHeight);
+        PlaceTiler(tileAtlas.leaf, x + 1, y + treeHeight + 1);
     }
 
-    public void PlaceTiler(Sprite tileSprite, int x, int y)
+    public void PlaceTiler(TileClass tile, int x, int y)
     {
         if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
@@ -225,44 +241,16 @@ public class TerrainHandler : MonoBehaviour
             newTile.AddComponent<BoxCollider2D>();
             newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
             newTile.tag = "Ground";
-            newTile.GetComponent<SpriteRenderer>().sprite = tileSprite;
-            newTile.name = tileSprite.name;
+
+            int spriteIndex = Random.Range(0, tile.tileSprites.Length);
+            newTile.GetComponent<SpriteRenderer>().sprite = tile.tileSprites[spriteIndex];
+            newTile.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            newTile.name = tile.tileSprites[0].name;
             newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
 
             worldTiles.Add(newTile.transform.position - (Vector3.one * 0.5f));
             worldTileObjects.Add(newTile);
-        }
-    }
-
-    public void PlaceTile(Sprite[] tileSprites, int x, int y, bool backgroundElement)
-    {
-        if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
-        {
-            GameObject newTile = new GameObject();
-
-            int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
-            chunkCoord /= chunkSize;
-
-            newTile.transform.parent = worldChunks[chunkCoord].transform;
-
-            newTile.AddComponent<SpriteRenderer>();
-            if (!backgroundElement)
-            {
-                newTile.AddComponent<BoxCollider2D>();
-                newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
-                newTile.tag = "Ground";
-            }
-
-            int spriteIndex = Random.Range(0, tileSprites.Length);
-            newTile.GetComponent<SpriteRenderer>().sprite = tileSprites[spriteIndex];
-            newTile.GetComponent<SpriteRenderer>().sortingOrder = -5;
-
-            newTile.name = tileSprites[0].name;
-            newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
-
-            worldTiles.Add(newTile.transform.position - (Vector3.one * 0.5f));
-            worldTileObjects.Add(newTile);
-
+            worldTileClasses.Add(tile);
         }
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Vector2Int mousePos;
     public TerrainHandler terrainhandler;
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
@@ -16,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     private bool hit;
     private bool onGround;
-    
+
+    public int playerRange;
+    public Vector2Int mousePos;
+
 
     [SerializeField] private float playerSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
@@ -39,11 +41,17 @@ public class PlayerMovement : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         playerRigidBody.velocity = new Vector2(dirX * playerSpeed, playerRigidBody.velocity.y);
 
+
         hit = Input.GetMouseButton(0);
-        if (hit)
+
+        if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 1f)
         {
-            terrainhandler.RemoveTile(mousePos.x, mousePos.y);
+            if (hit)
+            {
+                terrainhandler.RemoveTile(mousePos.x, mousePos.y);
+            }
         }
+
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {

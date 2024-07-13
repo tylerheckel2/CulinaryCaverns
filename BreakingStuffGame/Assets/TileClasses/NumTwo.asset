@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: NumTwo
   m_EditorClassIdentifier: 
   tileName: NumTwo
-  tileSprite: {fileID: 21300000, guid: 3d1693afa26ea384ab06e21f68d97cb5, type: 3}
+  tileSprites:
+  - {fileID: 21300000, guid: 3d1693afa26ea384ab06e21f68d97cb5, type: 3}
+  isSolid: 1
