@@ -131,6 +131,10 @@ public class TerrainHandler : MonoBehaviour
                     {
                         PlaceTiler(tileClass, x, y);
                     }
+                    /*else if (tileClass.wallVariant != null)
+                    {
+                        PlaceTiler(tileClass.wallVariant, x, y);
+                    }*/
                 }
                 else
                 {
@@ -194,10 +198,18 @@ public class TerrainHandler : MonoBehaviour
     {
         if (worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
+            /*if (worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].wallVariant != null)
+            {
+                PlaceTiler(worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].wallVariant, x, y);
+            }*/
+            
             Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
-            GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y + 0.5f), Quaternion.identity);
-            newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[0];
 
+            if (worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileDrop)
+            {
+                GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y + 0.5f), Quaternion.identity);
+                newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[0];
+            }
             worldTileObjects.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
             worldTileClasses.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
             worldTiles.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
@@ -227,6 +239,8 @@ public class TerrainHandler : MonoBehaviour
     {
         if (!worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
+            bool backgroundElement = tile.inBackground;
+
             GameObject newTile = new GameObject();
 
             //int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
@@ -238,19 +252,49 @@ public class TerrainHandler : MonoBehaviour
             newTile.transform.parent = worldChunks[chunkCoord].transform;
 
             newTile.AddComponent<SpriteRenderer>();
-            newTile.AddComponent<BoxCollider2D>();
-            newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
-            newTile.tag = "Ground";
+            if (!backgroundElement)
+            {
+                newTile.AddComponent<BoxCollider2D>();
+                newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
+                newTile.tag = "Ground";
+            }
 
             int spriteIndex = Random.Range(0, tile.tileSprites.Length);
             newTile.GetComponent<SpriteRenderer>().sprite = tile.tileSprites[spriteIndex];
-            newTile.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+            if (tile.inBackground)
+            {
+                newTile.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                newTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            }
+            else
+            {
+                newTile.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            }
             newTile.name = tile.tileSprites[0].name;
             newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
 
             worldTiles.Add(newTile.transform.position - (Vector3.one * 0.5f));
             worldTileObjects.Add(newTile);
             worldTileClasses.Add(tile);
+        }
+    }
+
+    public void CheckTile(TileClass tile, int x, int y)
+    {
+        if (x >= 0 && x<= worldSize && y >= 0 && y<= worldSize)
+        {
+            if(!worldTiles.Contains(new Vector2Int(x, y)))
+            {
+                PlaceTiler(tile, x, y);
+            }
+            else
+            {
+                if (worldTileClasses[worldTiles.IndexOf(new Vector2Int(x, y))].inBackground)
+                {
+                    RemoveTile(x, y);
+                }
+            }
         }
     }
 }

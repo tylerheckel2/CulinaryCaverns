@@ -15,6 +15,7 @@ MonoBehaviour:
   dirt: {fileID: 11400000, guid: a98b6d99a982dcf45b36be8f5eb526b5, type: 2}
   grass: {fileID: 11400000, guid: 61e9498bb31b7b84b9e556261100c492, type: 2}
   stone: {fileID: 11400000, guid: 80167df33fd45ae48a6009c72920a806, type: 2}
+  stone_Wall: {fileID: 11400000, guid: bc5c95029657fc84b9466395ff4ff4b8, type: 2}
   log: {fileID: 11400000, guid: 7f76e4919cf17e148b6701d16d1604ff, type: 2}
   leaf: {fileID: 11400000, guid: d43f368c952407b4bb4dda933e681090, type: 2}
   numOne: {fileID: 11400000, guid: da4dc8d11c80b8347aa8e854a89eced4, type: 2}
