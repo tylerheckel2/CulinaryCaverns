@@ -8,7 +8,7 @@ public class ItemClass
     {
         block,
         tool
-    }
+    };
 
     public ItemType itemType;
 
@@ -16,12 +16,14 @@ public class ItemClass
 
     public string name;
     public Sprite sprite;
+    public bool isStackable;
 
 
     public ItemClass(TileClass _tile)
     {
         name = _tile.name;
         sprite = _tile.tileSprites[0];
+        isStackable = _tile.isStackable;
         itemType = ItemType.block;
     }
 }

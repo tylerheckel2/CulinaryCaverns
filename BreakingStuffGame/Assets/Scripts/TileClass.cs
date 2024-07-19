@@ -12,4 +12,5 @@ public class TileClass : ScriptableObject
     public bool isSolid = true;
     public bool inBackground = false;
     public bool tileDrop = true;
+    public bool isStackable = true;
 }

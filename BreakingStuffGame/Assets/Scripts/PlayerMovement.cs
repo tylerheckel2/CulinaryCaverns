@@ -9,13 +9,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public TerrainHandler terrainhandler;
     public PlayerInventory inventory;
+    public bool inventoryShowing = false;
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private Animator anim;
     private float dirX = 0f;
     private bool hit;
-    private bool onGround;
+    public bool onGround;
 
     public int playerRange;
     public Vector2Int mousePos;
@@ -46,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         hit = Input.GetMouseButton(0);
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            inventoryShowing = !inventoryShowing;
+        }
+
         if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 1f)
         {
             if (hit)
@@ -53,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
                 terrainhandler.RemoveTile(mousePos.x, mousePos.y);
             }
         }
+
+        inventory.inventoryUI.SetActive(inventoryShowing);
 
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -67,22 +75,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
         return onGround;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Ground"))
-        {
-            onGround = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ground"))
-        {
-            onGround = false;
-        }
     }
 
     private void UpdateAnimationState()
