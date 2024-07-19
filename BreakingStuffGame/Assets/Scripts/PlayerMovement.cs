@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public TerrainHandler terrainhandler;
+    public PlayerInventory inventory;
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        inventory = GetComponent<PlayerInventory>();
     }
     private void Update()
     {

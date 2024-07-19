@@ -7,6 +7,7 @@ public class TerrainHandler : MonoBehaviour
 {
     public PlayerMovement player;
     public GameObject tileDrop;
+    public ItemCollector itemCollector;
 
     [Header("Tile Atlas")]
     public TileAtlas tileAtlas;
@@ -202,14 +203,17 @@ public class TerrainHandler : MonoBehaviour
             {
                 PlaceTiler(worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].wallVariant, x, y);
             }*/
-            
+
             Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
 
             if (worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileDrop)
             {
                 GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y + 0.5f), Quaternion.identity);
                 newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[0];
+                ItemClass tileDropItem = new ItemClass(worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))]);
+                newtileDrop.GetComponent<TileDropController>().item = tileDropItem;
             }
+            
             worldTileObjects.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
             worldTileClasses.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
             worldTiles.RemoveAt(worldTiles.IndexOf(new Vector2(x, y)));
@@ -264,12 +268,12 @@ public class TerrainHandler : MonoBehaviour
 
             if (tile.inBackground)
             {
-                newTile.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                newTile.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 newTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             }
             else
             {
-                newTile.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                newTile.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
             newTile.name = tile.tileSprites[0].name;
             newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
@@ -298,3 +302,11 @@ public class TerrainHandler : MonoBehaviour
         }
     }
 }
+/*if (newtileDrop.GetComponent<SpriteRenderer>().sprite == tileAtlas.numOne.tileSprites[0])
+                {
+                    itemCollector.NumOneCollector();
+                }
+                if (newtileDrop.GetComponent<SpriteRenderer>().sprite == tileAtlas.numTwo.tileSprites[0])
+                {
+                    itemCollector.NumTwoCollector();
+                }*/

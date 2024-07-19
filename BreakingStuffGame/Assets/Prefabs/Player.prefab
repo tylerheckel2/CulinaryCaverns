@@ -224,8 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7464cb43e5999ac488c1bb8bc9c18407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePos: {x: 0, y: 0}
   terrainhandler: {fileID: 0}
+  inventory: {fileID: 0}
+  playerRange: 0
+  mousePos: {x: 0, y: 0}
   playerSpeed: 7
   jumpForce: 12
   jumpableGround:

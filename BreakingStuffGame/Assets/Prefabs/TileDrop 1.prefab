@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7616216243707165627}
   - component: {fileID: -1461848764724607531}
   m_Layer: 0
-  m_Name: TileDrop
+  m_Name: TileDrop 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,4 +217,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6562f7c8aa9e23f4eb3e4b8ca00b94b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: NumOne
