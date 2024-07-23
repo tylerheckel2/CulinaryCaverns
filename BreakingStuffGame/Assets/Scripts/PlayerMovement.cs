@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -21,12 +22,15 @@ public class PlayerMovement : MonoBehaviour
     public int playerRange;
     public Vector2Int mousePos;
 
+    private DateTime lastClickTime;
+    private bool buttonClicked = false;
+
 
     [SerializeField] private float playerSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
 
-    private enum MovementState { idle, running, jumping, falling }
+    private enum MovementState { idle, running, runningMining, jumping, falling, mining }
 
     private void Start()
     {
@@ -80,21 +84,72 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimationState()
     {
         MovementState state;
-
         if (dirX > 0f)
         {
-            state = MovementState.running;
-            sprite.flipX = false;
+            if (transform.position.y >= 29f)
+            {
+                state = MovementState.running;
+                sprite.flipX = false;
+            }
+            else
+            {
+                state = MovementState.runningMining;
+                sprite.flipX = false;
+            }
         }
         else if (dirX < 0f)
         {
-            state = MovementState.running;
-            sprite.flipX = true;
+            if (transform.position.y >= 29f)
+            {
+                state = MovementState.running;
+                sprite.flipX = true;
+            }
+            else
+            {
+                state = MovementState.runningMining;
+                sprite.flipX = true;
+            }
         }
         else
         {
             state = MovementState.idle;
         }
+        if (hit)
+        {
+            state = MovementState.mining;
+            if (dirX > 0f)
+            {
+                sprite.flipX = false;
+            }
+            else if (dirX > 0f)
+            {
+                sprite.flipX = true;
+            }
+            /*buttonClicked = true;*/
+        }
+        
+        /*if (buttonClicked)
+        {
+            TimeSpan timeSinceLastClick = DateTime.Now - lastClickTime;
+            if (timeSinceLastClick.TotalSeconds >= 5)
+            {
+                if (dirX > 0f)
+                {
+                    state = MovementState.runningMining;
+                    sprite.flipX = false;
+                }
+                else if (dirX < 0f)
+                {
+                    state = MovementState.runningMining;
+                    sprite.flipX = true;
+                }
+                else
+                {
+                    state = MovementState.idle;
+                }
+                buttonClicked = false;
+            }
+        }*/
 
         anim.SetInteger("State", (int)state);
     }
