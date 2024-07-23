@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public TerrainHandler terrainhandler;
     public PlayerInventory inventory;
+    public ChatBubble chatBubble;
+    public bool chatBubbleShowing = false;
     public bool inventoryShowing = false;
     private Rigidbody2D playerRigidBody;
     private BoxCollider2D coll;
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2Int mousePos;
 
     private DateTime lastClickTime;
-    private bool buttonClicked = false;
+    /*private bool buttonClicked = false;*/
 
 
     [SerializeField] private float playerSpeed = 7f;
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         inventory = GetComponent<PlayerInventory>();
+        /*chatBubble = GetComponent<ChatBubble>();*/
     }
     private void Update()
     {
@@ -54,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             inventoryShowing = !inventoryShowing;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            chatBubbleShowing = !chatBubbleShowing;
         }
 
         if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 1f)

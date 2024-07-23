@@ -15,6 +15,12 @@ public class PlayerInventory : MonoBehaviour
     public int inventoryHeight;
     public InventorySlot[,] inventorySlots;
     public GameObject[,] uiSlots;
+    public TileAtlas tileAtlas;
+    public ChatBubble chatBubble;
+    public int numOne = 0;
+    public int numTwo = 0;
+    public bool numOneCollected = false;
+    public bool numTwoCollected = false;
 
     private void Start()
     {
@@ -73,6 +79,22 @@ public class PlayerInventory : MonoBehaviour
         if (itemPos != Vector2Int.one * -1)
         {
             inventorySlots[itemPos.x, itemPos.y].quantity += 1;
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[0])
+            {
+                numOne++;
+                if (numOne >= chatBubble.numOne)
+                {
+                    numOneCollected = true;
+                }
+            }
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numTwo.tileSprites[0])
+            {
+                numTwo++;
+                if (numTwo >= chatBubble.numTwo)
+                {
+                    numTwoCollected = true;
+                }
+            }
             added = true;
         }
         if (!added) {
@@ -85,6 +107,14 @@ public class PlayerInventory : MonoBehaviour
                     if (inventorySlots[x, y] == null)
                     {
                         inventorySlots[x, y] = new InventorySlot { item = item, position = new Vector2Int(x, y), quantity = 1 };
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numOne.tileSprites[0])
+                        {
+                            numOne++;
+                        }
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numTwo.tileSprites[0])
+                        {
+                            numTwo++;
+                        }
                         added = true;
                         break;
                     }

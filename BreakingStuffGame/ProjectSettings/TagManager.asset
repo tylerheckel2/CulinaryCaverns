@@ -51,6 +51,9 @@ TagManager:
   - name: Terrain
     uniqueID: 2715386143
     locked: 0
+  - name: ChatBubble
+    uniqueID: 4145713461
+    locked: 0
   - name: Player
     uniqueID: 2544646161
     locked: 0
