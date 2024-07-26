@@ -13,7 +13,7 @@ public class Finish : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !levelCompleted && playerInventory.numOneCollected && playerInventory.numTwoCollected)
         {
             levelCompleted = true;
-            Invoke("CompleteLevel", 3f);
+            Invoke("CompleteLevel", 1.5f);
         }
     }
 

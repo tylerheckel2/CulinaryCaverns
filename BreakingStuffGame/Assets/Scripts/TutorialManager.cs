@@ -95,7 +95,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 9:
                 instructionText.text = "Good luck and have fun!";
-                StartCoroutine(ProceedToNextLevel());
+                Invoke("ProceedToNextLevel", 1.5f);
                 break;
 
                 // Add logic to transition to the next level
@@ -109,9 +109,8 @@ public class TutorialManager : MonoBehaviour
         ShowInstruction();
     }
 
-    IEnumerator ProceedToNextLevel()
+    public void ProceedToNextLevel()
     {
-        yield return new WaitForSeconds(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
