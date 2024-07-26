@@ -38,8 +38,8 @@ public class ChatBubble : MonoBehaviour
 
     void Start()
     {
-        numOne = Random.Range(10, 30);
-        numTwo = Random.Range(10, 30);
+        numOne = Random.Range(20, 40);
+        numTwo = Random.Range(20, 40);
         ShowInstruction();
     }
 
@@ -68,7 +68,7 @@ public class ChatBubble : MonoBehaviour
                 instructionText.text = "Press T to Talk.";
                 break;
             case 1:
-                instructionText.text = "Hello, I'm Sam. Welcome to our village! We need you to find us " + numOne + " numOne and " + numTwo + " numTwo.";
+                instructionText.text = "Hello, I'm Sam. Welcome to our village! We need you to find us " + numOne + " Burgers and " + numTwo + " Ice Cream Cones.";
                 break;
             case 2:
                 instructionText.text = "Fantastic work! Thank you so much!";

@@ -15,7 +15,8 @@ MonoBehaviour:
   tileName: NumOne
   wallVariant: {fileID: 11400000, guid: bc5c95029657fc84b9466395ff4ff4b8, type: 2}
   tileSprites:
-  - {fileID: 21300000, guid: dc981c7d6ca65bb44a727769c947b37f, type: 3}
+  - {fileID: 21300000, guid: f90996bd0d0bdc24380d0126e246e741, type: 3}
   isSolid: 1
   inBackground: 0
   tileDrop: 1
+  isStackable: 1
