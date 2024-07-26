@@ -7,28 +7,78 @@ using UnityEngine.UI;
 public class ChatBubble : MonoBehaviour
 {
     private SpriteRenderer backgroundSpriteRenderer;
-    private TextMeshPro textMeshPro;
-    private Button button;
-    public GameObject chatBubble;
     public int numOne;
     public int numTwo;
 
-    private void Awake()
+    public TextMeshPro instructionText;
+    private int currentStep = 0;
+
+    public PlayerInventory playerInventory;
+
+    public Finish finish;
+
+    /*private void Awake()
     {
         backgroundSpriteRenderer = transform.Find("Background").GetComponent<SpriteRenderer>();
         textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
         button = transform.Find("Button").GetComponent<Button>();
-    }
+    }*/
 
-    private void Start()
+    /*private void Start()
     {
         numOne = Random.Range(10, 30);
         numTwo = Random.Range(10, 30);
         Setup("Hello, welcome to our village! We need you to find us " + numOne + " numOne and " + numTwo + " numTwo.");
-    }
+    }*/
 
-    private void Setup(string text)
+    /*private void Setup(string text)
     {
         textMeshPro.SetText(text);
+    }*/
+
+    void Start()
+    {
+        numOne = Random.Range(10, 30);
+        numTwo = Random.Range(10, 30);
+        ShowInstruction();
+    }
+
+    void Update()
+    {
+        switch (currentStep)
+        {
+            case 0:
+                if (Input.GetKeyDown(KeyCode.T))
+                    ProceedToNextStep();
+                break;
+            case 1:
+                if (finish.levelCompleted)
+                    ProceedToNextStep();
+                break;
+            case 2:
+                break;
+        }
+    }
+
+    void ShowInstruction()
+    {
+        switch (currentStep)
+        {
+            case 0:
+                instructionText.text = "Press T to Talk.";
+                break;
+            case 1:
+                instructionText.text = "Hello, I'm Sam. Welcome to our village! We need you to find us " + numOne + " numOne and " + numTwo + " numTwo.";
+                break;
+            case 2:
+                instructionText.text = "Fantastic work! Thank you so much!";
+                break;
+        }
+    }
+
+    void ProceedToNextStep()
+    {
+        currentStep++;
+        ShowInstruction();
     }
 }

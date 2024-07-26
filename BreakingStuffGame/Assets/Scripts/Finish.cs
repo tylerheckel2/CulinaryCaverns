@@ -7,17 +7,17 @@ public class Finish : MonoBehaviour
 {
     public PlayerInventory playerInventory;
 
-    private bool levelCompleted = false;
+    public bool levelCompleted = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !levelCompleted && playerInventory.numOneCollected && playerInventory.numTwoCollected)
         {
             levelCompleted = true;
-            Invoke("CompleteLevel", 2f);
+            Invoke("CompleteLevel", 3f);
         }
     }
 
-    private void CompleteLevel()
+    public void CompleteLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

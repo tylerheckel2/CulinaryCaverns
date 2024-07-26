@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
     public int numTwo = 0;
     public bool numOneCollected = false;
     public bool numTwoCollected = false;
+    public bool levelContainsOrder = true;
 
     private void Start()
     {
@@ -82,17 +83,23 @@ public class PlayerInventory : MonoBehaviour
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[0])
             {
                 numOne++;
-                if (numOne >= chatBubble.numOne)
+                if (levelContainsOrder)
                 {
-                    numOneCollected = true;
+                    if (numOne >= chatBubble.numOne)
+                    {
+                        numOneCollected = true;
+                    }
                 }
             }
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numTwo.tileSprites[0])
             {
                 numTwo++;
-                if (numTwo >= chatBubble.numTwo)
+                if (levelContainsOrder)
                 {
-                    numTwoCollected = true;
+                    if (numTwo >= chatBubble.numTwo)
+                    {
+                        numTwoCollected = true;
+                    }
                 }
             }
             added = true;
