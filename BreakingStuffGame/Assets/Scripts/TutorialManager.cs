@@ -94,8 +94,8 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "Tutorial Complete! Whenever you are ready, press T to advance to the first level.";
                 break;
             case 9:
-                instructionText.text = "Good luck and have fun!";
-                Invoke("ProceedToNextLevel", 1.5f);
+                instructionText.text = "Good luck and have fun! Level 1 Loading...";
+                Invoke("ProceedToNextLevel", 1f);
                 break;
 
                 // Add logic to transition to the next level
