@@ -13,4 +13,6 @@ public class TileAtlas : ScriptableObject
 
     public TileClass numOne;
     public TileClass numTwo;
+    public TileClass numThree;
+    public TileClass numFour;
 }

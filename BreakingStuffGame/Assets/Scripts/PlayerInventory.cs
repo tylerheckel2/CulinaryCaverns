@@ -19,8 +19,13 @@ public class PlayerInventory : MonoBehaviour
     public ChatBubble chatBubble;
     public int numOne = 0;
     public int numTwo = 0;
+    public int numThree = 0;
+    public int numFour = 0;
     public bool numOneCollected = false;
     public bool numTwoCollected = false;
+    public bool numThreeCollected = false;
+    public bool numFourCollected = false;
+
     public bool levelContainsOrder = true;
 
     private void Start()
@@ -102,6 +107,28 @@ public class PlayerInventory : MonoBehaviour
                     }
                 }
             }
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numThree.tileSprites[0])
+            {
+                numThree++;
+                if (levelContainsOrder)
+                {
+                    if (numThree >= chatBubble.numThree)
+                    {
+                        numThreeCollected = true;
+                    }
+                }
+            }
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numFour.tileSprites[0])
+            {
+                numFour++;
+                if (levelContainsOrder)
+                {
+                    if (numFour >= chatBubble.numFour)
+                    {
+                        numFourCollected = true;
+                    }
+                }
+            }
             added = true;
         }
         if (!added) {
@@ -121,6 +148,14 @@ public class PlayerInventory : MonoBehaviour
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numTwo.tileSprites[0])
                         {
                             numTwo++;
+                        }
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numThree.tileSprites[0])
+                        {
+                            numThree++;
+                        }
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numFour.tileSprites[0])
+                        {
+                            numFour++;
                         }
                         added = true;
                         break;

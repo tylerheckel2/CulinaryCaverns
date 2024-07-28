@@ -13,6 +13,9 @@ public class LevelManager : MonoBehaviour
     public ChatBubble chatBubble;
     public Finish finish;
 
+    public bool levelOne = false;
+    public bool levelTwo = false;
+
     void Start()
     {
         ShowInstruction();
@@ -27,8 +30,16 @@ public class LevelManager : MonoBehaviour
                     ProceedToNextStep();
                 break;
             case 1:
-                if (playerInventory.numOneCollected && playerInventory.numTwoCollected)
-                    ProceedToNextStep();
+                if (levelOne)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTwo)
+                {
+                    if (playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
                 break;
             case 2:
                 if(finish.levelCompleted)
@@ -52,7 +63,7 @@ public class LevelManager : MonoBehaviour
                 instructionText.text = "Enter the cavern to your right to find and collect the requested items.";
                 break;
             case 2:
-                instructionText.text = "Great job! You have collected the necessary items. Bring them back to Sam to advance to the next level.";
+                instructionText.text = "Great job! You have collected the necessary items. Bring them back to Sam to complete the level.";
                 break;
             case 3:
                 instructionText.text = "Level Complete!";

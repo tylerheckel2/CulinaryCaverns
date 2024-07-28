@@ -52,11 +52,15 @@ public class TerrainHandler : MonoBehaviour
         caveNoiseTexture = new Texture2D(worldSize, worldSize);
         ores[0].spreadTexture = new Texture2D(worldSize, worldSize);
         ores[1].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[2].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[3].spreadTexture = new Texture2D(worldSize, worldSize);
 
         GenerateNoiseTexture(caveFreq, surfaceValue, caveNoiseTexture);
         //ores
         GenerateNoiseTexture(ores[0].rarity, ores[0].size, ores[0].spreadTexture);
         GenerateNoiseTexture(ores[1].rarity, ores[1].size, ores[1].spreadTexture);
+        GenerateNoiseTexture(ores[2].rarity, ores[2].size, ores[2].spreadTexture);
+        GenerateNoiseTexture(ores[3].rarity, ores[3].size, ores[3].spreadTexture);
     }
 
     private void Start()
@@ -64,12 +68,16 @@ public class TerrainHandler : MonoBehaviour
         caveNoiseTexture = new Texture2D(worldSize, worldSize);
         ores[0].spreadTexture = new Texture2D(worldSize, worldSize);
         ores[1].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[2].spreadTexture = new Texture2D(worldSize, worldSize);
+        ores[3].spreadTexture = new Texture2D(worldSize, worldSize);
 
         seed = Random.Range(-10000, 10000);
         GenerateNoiseTexture(caveFreq, surfaceValue, caveNoiseTexture);
         //ores
         GenerateNoiseTexture(ores[0].rarity, ores[0].size, ores[0].spreadTexture);
         GenerateNoiseTexture(ores[1].rarity, ores[1].size, ores[1].spreadTexture);
+        GenerateNoiseTexture(ores[2].rarity, ores[2].size, ores[2].spreadTexture);
+        GenerateNoiseTexture(ores[3].rarity, ores[3].size, ores[3].spreadTexture);
         CreateChunks();
         GenerateTerrain();
     }
@@ -111,6 +119,14 @@ public class TerrainHandler : MonoBehaviour
                     else if (ores[1].spreadTexture.GetPixel(x, y).r > 0.5f)
                     {
                         tileClass = tileAtlas.numTwo;
+                    }
+                    else if (ores[2].spreadTexture.GetPixel(x, y).r > 0.5f)
+                    {
+                        tileClass = tileAtlas.numThree;
+                    }
+                    else if (ores[3].spreadTexture.GetPixel(x, y).r > 0.5f)
+                    {
+                        tileClass = tileAtlas.numFour;
                     }
                     else
                     {
