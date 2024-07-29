@@ -15,7 +15,8 @@ MonoBehaviour:
   tileName: NumThree
   wallVariant: {fileID: 11400000, guid: bc5c95029657fc84b9466395ff4ff4b8, type: 2}
   tileSprites:
-  - {fileID: 21300000, guid: 748a474a7eeeb6b4bbb57e5078adda16, type: 3}
+  - {fileID: -248649629, guid: 73d358685ea24cb40a0b692042410159, type: 3}
+  - {fileID: -248649629, guid: 73d358685ea24cb40a0b692042410159, type: 3}
   isSolid: 1
   inBackground: 0
   tileDrop: 1

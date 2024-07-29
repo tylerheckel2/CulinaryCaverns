@@ -225,7 +225,7 @@ public class TerrainHandler : MonoBehaviour
             if (worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileDrop)
             {
                 GameObject newtileDrop = Instantiate(tileDrop, new Vector2(x, y + 0.5f), Quaternion.identity);
-                newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[0];
+                newtileDrop.GetComponent<SpriteRenderer>().sprite = worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].tileSprites[1];
                 ItemClass tileDropItem = new ItemClass(worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))]);
                 newtileDrop.GetComponent<TileDropController>().item = tileDropItem;
             }
