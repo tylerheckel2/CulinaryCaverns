@@ -15,8 +15,8 @@ MonoBehaviour:
   tileName: Stone
   wallVariant: {fileID: 11400000, guid: bc5c95029657fc84b9466395ff4ff4b8, type: 2}
   tileSprites:
-  - {fileID: 165196550, guid: 73d358685ea24cb40a0b692042410159, type: 3}
-  - {fileID: 165196550, guid: 73d358685ea24cb40a0b692042410159, type: 3}
+  - {fileID: -61133065, guid: f5081b0c4d198c84882f2fc9a6fa7101, type: 3}
+  - {fileID: -61133065, guid: f5081b0c4d198c84882f2fc9a6fa7101, type: 3}
   isSolid: 1
   inBackground: 0
   tileDrop: 1
