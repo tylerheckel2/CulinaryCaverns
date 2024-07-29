@@ -280,7 +280,7 @@ public class TerrainHandler : MonoBehaviour
             }
 
             int spriteIndex = Random.Range(0, tile.tileSprites.Length);
-            newTile.GetComponent<SpriteRenderer>().sprite = tile.tileSprites[spriteIndex];
+            newTile.GetComponent<SpriteRenderer>().sprite = tile.tileSprites[0];
 
             if (tile.inBackground)
             {

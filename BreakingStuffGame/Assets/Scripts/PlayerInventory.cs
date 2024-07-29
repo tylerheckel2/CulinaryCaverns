@@ -85,7 +85,7 @@ public class PlayerInventory : MonoBehaviour
         if (itemPos != Vector2Int.one * -1)
         {
             inventorySlots[itemPos.x, itemPos.y].quantity += 1;
-            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[0])
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[1])
             {
                 numOne++;
                 if (levelContainsOrder)
@@ -96,7 +96,7 @@ public class PlayerInventory : MonoBehaviour
                     }
                 }
             }
-            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numTwo.tileSprites[0])
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numTwo.tileSprites[1])
             {
                 numTwo++;
                 if (levelContainsOrder)
@@ -107,7 +107,7 @@ public class PlayerInventory : MonoBehaviour
                     }
                 }
             }
-            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numThree.tileSprites[0])
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numThree.tileSprites[1])
             {
                 numThree++;
                 if (levelContainsOrder)
@@ -118,7 +118,7 @@ public class PlayerInventory : MonoBehaviour
                     }
                 }
             }
-            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numFour.tileSprites[0])
+            if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numFour.tileSprites[1])
             {
                 numFour++;
                 if (levelContainsOrder)
@@ -141,19 +141,19 @@ public class PlayerInventory : MonoBehaviour
                     if (inventorySlots[x, y] == null)
                     {
                         inventorySlots[x, y] = new InventorySlot { item = item, position = new Vector2Int(x, y), quantity = 1 };
-                        if (inventorySlots[x, y].item.sprite == tileAtlas.numOne.tileSprites[0])
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numOne.tileSprites[1])
                         {
                             numOne++;
                         }
-                        if (inventorySlots[x, y].item.sprite == tileAtlas.numTwo.tileSprites[0])
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numTwo.tileSprites[1])
                         {
                             numTwo++;
                         }
-                        if (inventorySlots[x, y].item.sprite == tileAtlas.numThree.tileSprites[0])
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numThree.tileSprites[1])
                         {
                             numThree++;
                         }
-                        if (inventorySlots[x, y].item.sprite == tileAtlas.numFour.tileSprites[0])
+                        if (inventorySlots[x, y].item.sprite == tileAtlas.numFour.tileSprites[1])
                         {
                             numFour++;
                         }

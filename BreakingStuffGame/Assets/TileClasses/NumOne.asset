@@ -16,7 +16,7 @@ MonoBehaviour:
   wallVariant: {fileID: 11400000, guid: bc5c95029657fc84b9466395ff4ff4b8, type: 2}
   tileSprites:
   - {fileID: -90661887, guid: 73d358685ea24cb40a0b692042410159, type: 3}
-  - {fileID: -90661887, guid: 73d358685ea24cb40a0b692042410159, type: 3}
+  - {fileID: 21300000, guid: 9c7b8437116ab9a408414892d9d05a38, type: 3}
   isSolid: 1
   inBackground: 0
   tileDrop: 1

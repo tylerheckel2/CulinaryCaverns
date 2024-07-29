@@ -22,7 +22,7 @@ public class ItemClass
     public ItemClass(TileClass _tile)
     {
         name = _tile.name;
-        sprite = _tile.tileSprites[0];
+        sprite = _tile.tileSprites[1];
         isStackable = _tile.isStackable;
         itemType = ItemType.block;
     }
