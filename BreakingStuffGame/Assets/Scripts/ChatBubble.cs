@@ -19,8 +19,14 @@ public class ChatBubble : MonoBehaviour
 
     public Finish finish;
 
+    public bool rarerLevel = false;
     public bool levelOne = false;
     public bool levelTwo = false;
+    public bool levelThree = false;
+    public bool levelFour = false;
+    public bool levelFive = false;
+    public bool levelSix = false;
+    public bool levelSeven = false;
 
     /*private void Awake()
     {
@@ -43,13 +49,17 @@ public class ChatBubble : MonoBehaviour
 
     void Start()
     {
-        if (levelOne)
+        if (rarerLevel)
+        {
+            numOne = Random.Range(15, 25);
+            numTwo = Random.Range(15, 25);
+            numThree = Random.Range(15, 25);
+            numFour = Random.Range(15, 25);
+        }
+        else
         {
             numOne = Random.Range(20, 40);
             numTwo = Random.Range(20, 40);
-        }
-        if (levelTwo)
-        {
             numThree = Random.Range(20, 40);
             numFour = Random.Range(20, 40);
         }
@@ -89,16 +99,29 @@ public class ChatBubble : MonoBehaviour
                 {
                     instructionText.text = "Hello again! This time we need you to find us " + numThree + " Sushi and " + numFour + " Smoothies.";
                 }
+                if (levelThree)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers and " + numThree + " Sushi.";
+                }
+                if (levelFour)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numTwo + " Ice Cream Cones and " + numFour + " Smoothies.";
+                }
+                if (levelFive)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, and " + numThree + " Sushi.";
+                }
+                if (levelSix)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelSeven)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
                 break;
             case 2:
-                if (levelOne)
-                {
-                    instructionText.text = "Fantastic work! Thank you so much!";
-                }
-                if (levelTwo)
-                {
-                    instructionText.text = "Great work! Thank you so much!";
-                }
+                instructionText.text = "Fantastic work! Thank you so much!";
                 break;
         }
     }

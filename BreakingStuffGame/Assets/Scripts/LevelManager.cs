@@ -15,6 +15,11 @@ public class LevelManager : MonoBehaviour
 
     public bool levelOne = false;
     public bool levelTwo = false;
+    public bool levelThree = false;
+    public bool levelFour = false;
+    public bool levelFive = false;
+    public bool levelSix = false;
+    public bool levelSeven = false;
 
     void Start()
     {
@@ -38,6 +43,31 @@ public class LevelManager : MonoBehaviour
                 if (levelTwo)
                 {
                     if (playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelThree)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numThreeCollected)
+                        ProceedToNextStep();
+                }
+                if (levelFour)
+                {
+                    if (playerInventory.numTwoCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelFive)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected)
+                        ProceedToNextStep();
+                }
+                if (levelSix)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelSeven)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
                         ProceedToNextStep();
                 }
                 break;
