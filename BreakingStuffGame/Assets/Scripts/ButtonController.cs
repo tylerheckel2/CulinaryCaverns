@@ -18,4 +18,9 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "StartScreen");
     }
+
+    public void OpenCredits()
+    {
+        SceneManager.LoadScene(sceneName: "Credits");
+    }
 }
