@@ -23,4 +23,9 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "Credits");
     }
+
+    public void OpenSettings()
+    {
+        SceneManager.LoadScene(sceneName: "Settings");
+    }
 }
