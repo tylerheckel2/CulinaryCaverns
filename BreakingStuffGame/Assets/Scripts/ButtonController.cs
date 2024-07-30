@@ -28,4 +28,9 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "Settings");
     }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(sceneName: "Tutorial Level");
+    }
 }
