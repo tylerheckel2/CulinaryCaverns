@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public PlayerInventory playerInventory;
+    public AudioSource finishSoundEffect;
 
     public bool levelCompleted = false;
     public bool levelOne = false;
@@ -17,6 +18,7 @@ public class Finish : MonoBehaviour
             if (collision.gameObject.CompareTag("Player") && !levelCompleted && (playerInventory.numOneCollected && playerInventory.numTwoCollected))
             {
                 levelCompleted = true;
+                finishSoundEffect.Play();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -25,6 +27,7 @@ public class Finish : MonoBehaviour
             if (collision.gameObject.CompareTag("Player") && !levelCompleted && (playerInventory.numThreeCollected && playerInventory.numFourCollected))
             {
                 levelCompleted = true;
+                finishSoundEffect.Play();
                 Invoke("CompleteLevel", 1.5f);
             }
         }

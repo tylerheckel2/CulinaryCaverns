@@ -32,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
 
+    public AudioSource jumpSoundEffect;
+    public AudioSource mineSoundEffect;
+
     private enum MovementState { idle, running, runningMining, jumping, falling, mining }
 
     private void Start()
@@ -68,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit)
             {
+                mineSoundEffect.Play();
                 terrainhandler.RemoveTile(mousePos.x, mousePos.y);
             }
         }
@@ -77,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            jumpSoundEffect.Play();
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
         }
 

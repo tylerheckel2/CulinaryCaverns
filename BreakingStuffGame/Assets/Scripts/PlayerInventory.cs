@@ -17,6 +17,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject[,] uiSlots;
     public TileAtlas tileAtlas;
     public ChatBubble chatBubble;
+    public AudioSource itemCollectSoundEffect;
     public int numOne = 0;
     public int numTwo = 0;
     public int numThree = 0;
@@ -84,6 +85,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (itemPos != Vector2Int.one * -1)
         {
+            itemCollectSoundEffect.Play();
             inventorySlots[itemPos.x, itemPos.y].quantity += 1;
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[1])
             {
@@ -140,6 +142,7 @@ public class PlayerInventory : MonoBehaviour
                 {
                     if (inventorySlots[x, y] == null)
                     {
+                        itemCollectSoundEffect.Play();
                         inventorySlots[x, y] = new InventorySlot { item = item, position = new Vector2Int(x, y), quantity = 1 };
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numOne.tileSprites[1])
                         {
