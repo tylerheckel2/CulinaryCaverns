@@ -20,6 +20,19 @@ public class LevelManager : MonoBehaviour
     public bool levelFive = false;
     public bool levelSix = false;
     public bool levelSeven = false;
+    public bool levelEight = false;
+    public bool levelNine = false;
+    public bool levelTen = false;
+    public bool levelEleven = false;
+    public bool levelTwelve = false;
+    public bool levelThirteen = false;
+    public bool levelFourteen = false;
+    public bool levelFifteen = false;
+    public bool levelSixteen = false;
+    public bool levelSeventeen = false;
+    public bool levelEighteen = false;
+    public bool levelNineteen = false;
+    public bool levelTwenty = false;
 
     void Start()
     {
@@ -66,6 +79,71 @@ public class LevelManager : MonoBehaviour
                         ProceedToNextStep();
                 }
                 if (levelSeven)
+                {
+                    if (playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelEight)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelNine)
+                {
+                    if (playerInventory.numOneCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTen)
+                {
+                    if (playerInventory.numTwoCollected)
+                        ProceedToNextStep();
+                }
+                if (levelEleven)
+                {
+                    if (playerInventory.numThreeCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTwelve)
+                {
+                    if (playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelThirteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelFourteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected)
+                        ProceedToNextStep();
+                }
+                if (levelFifteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelSixteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected)
+                        ProceedToNextStep();
+                }
+                if (levelSeventeen)
+                {
+                    if (playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelEighteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelNineteen)
+                {
+                    if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTwenty)
                 {
                     if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
                         ProceedToNextStep();

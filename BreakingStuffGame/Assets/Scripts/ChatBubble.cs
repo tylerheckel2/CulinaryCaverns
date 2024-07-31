@@ -20,6 +20,7 @@ public class ChatBubble : MonoBehaviour
     public Finish finish;
 
     public bool rarerLevel = false;
+    public bool evenRarerLevel = false;
     public bool levelOne = false;
     public bool levelTwo = false;
     public bool levelThree = false;
@@ -27,6 +28,19 @@ public class ChatBubble : MonoBehaviour
     public bool levelFive = false;
     public bool levelSix = false;
     public bool levelSeven = false;
+    public bool levelEight = false;
+    public bool levelNine = false;
+    public bool levelTen = false;
+    public bool levelEleven = false;
+    public bool levelTwelve = false;
+    public bool levelThirteen = false;
+    public bool levelFourteen = false;
+    public bool levelFifteen = false;
+    public bool levelSixteen = false;
+    public bool levelSeventeen = false;
+    public bool levelEighteen = false;
+    public bool levelNineteen = false;
+    public bool levelTwenty = false;
 
     /*private void Awake()
     {
@@ -49,19 +63,26 @@ public class ChatBubble : MonoBehaviour
 
     void Start()
     {
-        if (rarerLevel)
+        if (evenRarerLevel)
         {
-            numOne = Random.Range(15, 25);
-            numTwo = Random.Range(15, 25);
-            numThree = Random.Range(15, 25);
-            numFour = Random.Range(15, 25);
+            numOne = Random.Range(12, 14);
+            numTwo = Random.Range(12, 14);
+            numThree = Random.Range(12, 14);
+            numFour = Random.Range(12, 14);
+        }
+        else if (rarerLevel)
+        {
+            numOne = Random.Range(20, 25);
+            numTwo = Random.Range(20, 25);
+            numThree = Random.Range(20, 25);
+            numFour = Random.Range(20, 25);
         }
         else
         {
-            numOne = Random.Range(20, 40);
-            numTwo = Random.Range(20, 40);
-            numThree = Random.Range(20, 40);
-            numFour = Random.Range(20, 40);
+            numOne = Random.Range(25, 40);
+            numTwo = Random.Range(25, 40);
+            numThree = Random.Range(25, 40);
+            numFour = Random.Range(25, 40);
         }
         ShowInstruction();
     }
@@ -116,6 +137,58 @@ public class ChatBubble : MonoBehaviour
                     instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numThree + " Sushi, and " + numFour + " Smoothies.";
                 }
                 if (levelSeven)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelEight)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, "+ numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelNine)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers.";
+                }
+                if (levelTen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numTwo + " Ice Cream Cones.";
+                }
+                if (levelEleven)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numThree + " Sushi.";
+                }
+                if (levelTwelve)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numFour + " Smoothies.";
+                }
+                if (levelThirteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers and " + numFour + " Smoothies.";
+                }
+                if (levelFourteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers and " + numTwo + " Ice Cream Cones.";
+                }
+                if (levelFifteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelSixteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, and " + numThree + " Sushi.";
+                }
+                if (levelSeventeen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelEighteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, and " + numFour + " Smoothies.";
+                }
+                if (levelNineteen)
+                {
+                    instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies."; ;
+                }
+                if (levelTwenty)
                 {
                     instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
                 }
