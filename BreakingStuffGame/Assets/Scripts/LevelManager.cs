@@ -172,6 +172,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case 2:
                 instructionText.text = "Great job! You have collected the necessary items. Bring them back to Sam to complete the level.";
+                finish.finishSoundEffect.Play();
                 break;
             case 3:
                 instructionText.text = "Level Complete!";

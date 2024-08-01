@@ -72,17 +72,17 @@ public class ChatBubble : MonoBehaviour
         }
         else if (rarerLevel)
         {
-            numOne = Random.Range(20, 25);
-            numTwo = Random.Range(20, 25);
-            numThree = Random.Range(20, 25);
-            numFour = Random.Range(20, 25);
+            numOne = Random.Range(20, 24);
+            numTwo = Random.Range(20, 24);
+            numThree = Random.Range(20, 24);
+            numFour = Random.Range(20, 24);
         }
         else
         {
-            numOne = Random.Range(25, 40);
-            numTwo = Random.Range(25, 40);
-            numThree = Random.Range(25, 40);
-            numFour = Random.Range(25, 40);
+            numOne = Random.Range(25, 36);
+            numTwo = Random.Range(25, 36);
+            numThree = Random.Range(25, 36);
+            numFour = Random.Range(25, 36);
         }
         ShowInstruction();
     }
