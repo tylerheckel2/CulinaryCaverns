@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ public class ButtonController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneName: "LevelSelection");
     }
     public void RestartGame()
     {
@@ -17,6 +18,11 @@ public class ButtonController : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(sceneName: "StartScreen");
+    }
+
+    public void QuitLevel()
+    {
+        SceneManager.LoadScene(sceneName: "LevelSelection");
     }
 
     public void OpenCredits()
@@ -31,6 +37,17 @@ public class ButtonController : MonoBehaviour
 
     public void PlayAgain()
     {
+        SceneManager.LoadScene(sceneName: "LevelSelection");
+    }
+
+    public void OpenTutorial()
+    {
         SceneManager.LoadScene(sceneName: "Tutorial Level");
+    }
+
+    public void OpenLevel(int levelIndex)
+    {
+        string levelName = "Level " + levelIndex;
+        SceneManager.LoadScene(levelName);
     }
 }
