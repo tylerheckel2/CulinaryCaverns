@@ -10,6 +10,8 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI instructionText;
     private int currentStep = 0;
 
+    public Finish finish;
+
     void Start()
     {
         ShowInstruction();
@@ -95,6 +97,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 9:
                 instructionText.text = "Good luck and have fun! Level 1 Loading...";
+                finish.UnlockNewLevel();
                 Invoke("ProceedToNextLevel", 1f);
                 break;
 

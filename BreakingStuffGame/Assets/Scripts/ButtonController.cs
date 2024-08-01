@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -49,5 +50,15 @@ public class ButtonController : MonoBehaviour
     {
         string levelName = "Level " + levelIndex;
         SceneManager.LoadScene(levelName);
+    }
+
+    public void ResetLevelMenu()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

@@ -37,6 +37,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -46,6 +47,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -55,6 +57,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -64,6 +67,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -73,6 +77,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -82,6 +87,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -91,6 +97,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -100,6 +107,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -109,6 +117,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -118,6 +127,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -127,6 +137,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -136,6 +147,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -145,6 +157,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -154,6 +167,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -163,6 +177,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -172,6 +187,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -181,6 +197,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -190,6 +207,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -199,6 +217,7 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
         }
@@ -208,8 +227,19 @@ public class Finish : MonoBehaviour
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();
+                UnlockNewLevel();
                 Invoke("CompleteLevel", 1.5f);
             }
+        }
+    }
+
+    public void UnlockNewLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
         }
     }
 
