@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             chatBubbleShowing = !chatBubbleShowing;
         }
 
-        if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 1f)
+        if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 0.1f)
         {
             if (hit)
             {
