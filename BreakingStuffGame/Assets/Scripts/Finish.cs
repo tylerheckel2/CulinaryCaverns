@@ -29,6 +29,8 @@ public class Finish : MonoBehaviour
     public bool levelEighteen = false;
     public bool levelNineteen = false;
     public bool levelTwenty = false;
+    public bool levelTwentyOne = false;
+    public bool levelTwentyTwo = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (levelOne)
@@ -224,6 +226,26 @@ public class Finish : MonoBehaviour
         if (levelTwenty)
         {
             if (collision.gameObject.CompareTag("Player") && !levelCompleted && (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected))
+            {
+                levelCompleted = true;
+                finishSoundEffect.Play();
+                UnlockNewLevel();
+                Invoke("CompleteLevel", 1.5f);
+            }
+        }
+        if (levelTwentyOne)
+        {
+            if (collision.gameObject.CompareTag("Player") && !levelCompleted && (playerInventory.totalFoodCollected))
+            {
+                levelCompleted = true;
+                finishSoundEffect.Play();
+                UnlockNewLevel();
+                Invoke("CompleteLevel", 1.5f);
+            }
+        }
+        if (levelTwentyTwo)
+        {
+            if (collision.gameObject.CompareTag("Player") && !levelCompleted && (playerInventory.totalFoodCollected))
             {
                 levelCompleted = true;
                 finishSoundEffect.Play();

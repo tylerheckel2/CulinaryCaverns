@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
     public bool levelEighteen = false;
     public bool levelNineteen = false;
     public bool levelTwenty = false;
+    public bool levelTwentyOne = false;
+    public bool levelTwentyTwo = false;
 
     void Start()
     {
@@ -146,6 +148,16 @@ public class LevelManager : MonoBehaviour
                 if (levelTwenty)
                 {
                     if (playerInventory.numOneCollected && playerInventory.numTwoCollected && playerInventory.numThreeCollected && playerInventory.numFourCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTwentyOne)
+                {
+                    if (playerInventory.totalFoodCollected)
+                        ProceedToNextStep();
+                }
+                if (levelTwentyTwo)
+                {
+                    if (playerInventory.totalFoodCollected)
                         ProceedToNextStep();
                 }
                 break;

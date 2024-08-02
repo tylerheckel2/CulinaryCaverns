@@ -11,6 +11,7 @@ public class ChatBubble : MonoBehaviour
     public int numTwo;
     public int numThree;
     public int numFour;
+    public int totalFood = 0;
 
     public TextMeshPro instructionText;
     private int currentStep = 0;
@@ -21,6 +22,8 @@ public class ChatBubble : MonoBehaviour
 
     public bool rarerLevel = false;
     public bool evenRarerLevel = false;
+    public bool bonusLevelOne = false;
+    public bool bonusLevelTwo = false;
     public bool levelOne = false;
     public bool levelTwo = false;
     public bool levelThree = false;
@@ -41,6 +44,8 @@ public class ChatBubble : MonoBehaviour
     public bool levelEighteen = false;
     public bool levelNineteen = false;
     public bool levelTwenty = false;
+    public bool levelTwentyOne = false;
+    public bool levelTwentyTwo = false;
 
     /*private void Awake()
     {
@@ -63,6 +68,14 @@ public class ChatBubble : MonoBehaviour
 
     void Start()
     {
+        if (bonusLevelOne)
+        {
+            totalFood = 350;
+        }
+        else if (bonusLevelTwo)
+        {
+            totalFood = 400;
+        }
         if (evenRarerLevel)
         {
             numOne = Random.Range(12, 14);
@@ -191,6 +204,14 @@ public class ChatBubble : MonoBehaviour
                 if (levelTwenty)
                 {
                     instructionText.text = "Hello again! This time we need you to find us " + numOne + " Burgers, " + numTwo + " Ice Cream Cones, " + numThree + " Sushi, and " + numFour + " Smoothies.";
+                }
+                if (levelTwentyOne)
+                {
+                    instructionText.text = "Hello! In this Bonus Level we want you to find us " + totalFood + " Total Food Items.";
+                }
+                if (levelTwentyTwo)
+                {
+                    instructionText.text = "Hello! In this Bonus Level we want you to find us " + totalFood + " Total Food Items."; ;
                 }
                 break;
             case 2:

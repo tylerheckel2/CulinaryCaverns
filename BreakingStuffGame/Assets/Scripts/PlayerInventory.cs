@@ -22,10 +22,12 @@ public class PlayerInventory : MonoBehaviour
     public int numTwo = 0;
     public int numThree = 0;
     public int numFour = 0;
+    public int totalFood = 0;
     public bool numOneCollected = false;
     public bool numTwoCollected = false;
     public bool numThreeCollected = false;
     public bool numFourCollected = false;
+    public bool totalFoodCollected = false;
 
     public bool levelContainsOrder = true;
 
@@ -90,44 +92,64 @@ public class PlayerInventory : MonoBehaviour
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numOne.tileSprites[1])
             {
                 numOne++;
+                totalFood++;
                 if (levelContainsOrder)
                 {
                     if (numOne >= chatBubble.numOne)
                     {
                         numOneCollected = true;
                     }
+                    if (totalFood >= chatBubble.totalFood)
+                    {
+                        totalFoodCollected = true;
+                    }
                 }
             }
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numTwo.tileSprites[1])
             {
                 numTwo++;
+                totalFood++;
                 if (levelContainsOrder)
                 {
                     if (numTwo >= chatBubble.numTwo)
                     {
                         numTwoCollected = true;
                     }
+                    if (totalFood >= chatBubble.totalFood)
+                    {
+                        totalFoodCollected = true;
+                    }
                 }
             }
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numThree.tileSprites[1])
             {
                 numThree++;
+                totalFood++;
                 if (levelContainsOrder)
                 {
                     if (numThree >= chatBubble.numThree)
                     {
                         numThreeCollected = true;
                     }
+                    if (totalFood >= chatBubble.totalFood)
+                    {
+                        totalFoodCollected = true;
+                    }
                 }
             }
             if (inventorySlots[itemPos.x, itemPos.y].item.sprite == tileAtlas.numFour.tileSprites[1])
             {
                 numFour++;
+                totalFood++;
                 if (levelContainsOrder)
                 {
                     if (numFour >= chatBubble.numFour)
                     {
                         numFourCollected = true;
+                    }
+                    if (totalFood >= chatBubble.totalFood)
+                    {
+                        totalFoodCollected = true;
                     }
                 }
             }
@@ -147,18 +169,22 @@ public class PlayerInventory : MonoBehaviour
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numOne.tileSprites[1])
                         {
                             numOne++;
+                            totalFood++;
                         }
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numTwo.tileSprites[1])
                         {
                             numTwo++;
+                            totalFood++;
                         }
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numThree.tileSprites[1])
                         {
                             numThree++;
+                            totalFood++;
                         }
                         if (inventorySlots[x, y].item.sprite == tileAtlas.numFour.tileSprites[1])
                         {
                             numFour++;
+                            totalFood++;
                         }
                         added = true;
                         break;

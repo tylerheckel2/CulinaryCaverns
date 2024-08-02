@@ -81,6 +81,15 @@ EditorBuildSettings:
     path: Assets/Scenes/EndScreen.unity
     guid: b07dee6aeaec74f49aee080a06abc9b2
   - enabled: 1
+    path: Assets/Scenes/Level 21.unity
+    guid: fb86ff4a940ff7c459d085bd06786b03
+  - enabled: 1
+    path: Assets/Scenes/Level 22.unity
+    guid: 7091f036c2957184c8b599e9bdbe8403
+  - enabled: 1
+    path: Assets/Scenes/BonusLevelEndScreen.unity
+    guid: 2ced9a87e810ee44fbf7a42087af9f2f
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: ca9b40e6a2cc8f4468050f79be5da22a
   - enabled: 1
