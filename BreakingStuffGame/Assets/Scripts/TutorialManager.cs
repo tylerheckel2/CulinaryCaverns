@@ -100,9 +100,6 @@ public class TutorialManager : MonoBehaviour
                 finish.UnlockNewLevel();
                 Invoke("ProceedToNextLevel", 1f);
                 break;
-
-                // Add logic to transition to the next level
-                /*break;*/
         }
     }
 

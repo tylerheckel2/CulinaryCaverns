@@ -6,7 +6,7 @@ public class TileClass : ScriptableObject
 {
     public string tileName;
     public TileClass wallVariant;
-    //public Sprite tileSprite;
+
     public Sprite[] tileSprites;
 
     public bool isSolid = true;

@@ -24,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     public int playerRange;
     public Vector2Int mousePos;
 
-    private DateTime lastClickTime;
-    /*private bool buttonClicked = false;*/
-
 
     [SerializeField] private float playerSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
@@ -44,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         inventory = GetComponent<PlayerInventory>();
-        /*chatBubble = GetComponent<ChatBubble>();*/
     }
     private void Update()
     {
@@ -90,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        //return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
         return onGround;
     }
 
@@ -138,31 +133,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 sprite.flipX = true;
             }
-            /*buttonClicked = true;*/
         }
-        
-        /*if (buttonClicked)
-        {
-            TimeSpan timeSinceLastClick = DateTime.Now - lastClickTime;
-            if (timeSinceLastClick.TotalSeconds >= 5)
-            {
-                if (dirX > 0f)
-                {
-                    state = MovementState.runningMining;
-                    sprite.flipX = false;
-                }
-                else if (dirX < 0f)
-                {
-                    state = MovementState.runningMining;
-                    sprite.flipX = true;
-                }
-                else
-                {
-                    state = MovementState.idle;
-                }
-                buttonClicked = false;
-            }
-        }*/
 
         anim.SetInteger("State", (int)state);
     }

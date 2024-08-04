@@ -7,7 +7,6 @@ public class TerrainHandler : MonoBehaviour
 {
     public PlayerMovement player;
     public GameObject tileDrop;
-    public ItemCollector itemCollector;
 
     [Header("Tile Atlas")]
     public TileAtlas tileAtlas;
@@ -34,12 +33,6 @@ public class TerrainHandler : MonoBehaviour
 
     [Header("Ore Settings")]
     public OreClass[] ores;
-    /*public float numOneRarity;
-    public float numOneSize;
-    public float numTwoRarity;
-    public float numTwoSize;
-    public Texture2D numOneSpread;
-    public Texture2D numTwoSpread;*/
 
     private GameObject[] worldChunks;
 
@@ -81,21 +74,6 @@ public class TerrainHandler : MonoBehaviour
         CreateChunks();
         GenerateTerrain();
     }
-
-    //void RefreshChunks()
-    //{
-    //for (int i = 0; i < worldChunks.Length; i++)
-    //{
-    //if (Mathf.Abs(i * chunkSize - player.transform.position.x) > Camera.main.orthographicSize)
-    //{
-    //worldChunks[i].SetActive(false);
-    //}
-    //else
-    //{
-    //worldChunks[i].SetActive(true);
-    //}
-    //}
-    //}
 
     public void GenerateTerrain()
     {
@@ -148,10 +126,6 @@ public class TerrainHandler : MonoBehaviour
                     {
                         PlaceTiler(tileClass, x, y);
                     }
-                    /*else if (tileClass.wallVariant != null)
-                    {
-                        PlaceTiler(tileClass.wallVariant, x, y);
-                    }*/
                 }
                 else
                 {
@@ -215,10 +189,6 @@ public class TerrainHandler : MonoBehaviour
     {
         if (worldTiles.Contains(new Vector2Int(x, y)) && x >= 0 && x <= worldSize && y >= 0 && y <= worldSize)
         {
-            /*if (worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].wallVariant != null)
-            {
-                PlaceTiler(worldTileClasses[worldTiles.IndexOf(new Vector2(x, y))].wallVariant, x, y);
-            }*/
 
             Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
 
@@ -262,9 +232,6 @@ public class TerrainHandler : MonoBehaviour
             bool backgroundElement = tile.inBackground;
 
             GameObject newTile = new GameObject();
-
-            //int chunkCoord = Mathf.RoundToInt(Mathf.Round(x / chunkSize) * chunkSize);
-            //chunkCoord /= chunkSize;
 
             int chunkCoord = Mathf.FloorToInt((float)x / chunkSize);
             chunkCoord = Mathf.Clamp(chunkCoord, 0, worldChunks.Length - 1);
@@ -318,11 +285,3 @@ public class TerrainHandler : MonoBehaviour
         }
     }
 }
-/*if (newtileDrop.GetComponent<SpriteRenderer>().sprite == tileAtlas.numOne.tileSprites[0])
-                {
-                    itemCollector.NumOneCollector();
-                }
-                if (newtileDrop.GetComponent<SpriteRenderer>().sprite == tileAtlas.numTwo.tileSprites[0])
-                {
-                    itemCollector.NumTwoCollector();
-                }*/

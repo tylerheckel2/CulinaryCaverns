@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject inventorySlotPrefab;
 
-    public ItemCollector itemCollector;
     public int inventoryWidth;
     public int inventoryHeight;
     public InventorySlot[,] inventorySlots;
@@ -35,7 +34,6 @@ public class PlayerInventory : MonoBehaviour
     {
         inventorySlots = new InventorySlot[inventoryWidth, inventoryHeight];
         uiSlots = new GameObject[inventoryWidth, inventoryHeight];
-        /*Add(ItemClass(item);*/
         SetupUI();
         UpdateInventoryUI();
     }
@@ -195,21 +193,6 @@ public class PlayerInventory : MonoBehaviour
         }
         UpdateInventoryUI();
         return added;
-
-                /*itemCollector.NumOneCollector();*/
-
-                /*if (item == )
-                {
-                    itemCollector.NumOneCollector();
-                }
-                else if (item == )
-                {
-                    itemCollector.NumTwoCollector();
-                }
-                else
-                {
-                    return;
-                }*/
      }
     
     public Vector2Int Contains(ItemClass item)
