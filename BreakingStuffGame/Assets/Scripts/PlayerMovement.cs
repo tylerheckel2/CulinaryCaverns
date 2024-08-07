@@ -94,29 +94,29 @@ public class PlayerMovement : MonoBehaviour
         MovementState state;
         if (dirX > 0f)
         {
-            if (transform.position.y >= 29f)
-            {
+            /*if (transform.position.y >= 29f)
+            {*/
                 state = MovementState.running;
                 sprite.flipX = false;
-            }
-            else
+            /*}*/
+            /*else
             {
                 state = MovementState.runningMining;
                 sprite.flipX = false;
-            }
+            }*/
         }
         else if (dirX < 0f)
         {
-            if (transform.position.y >= 29f)
-            {
+            /*if (transform.position.y >= 29f)
+            {*/
                 state = MovementState.running;
                 sprite.flipX = true;
-            }
-            else
+            /*}*/
+            /*else
             {
                 state = MovementState.runningMining;
                 sprite.flipX = true;
-            }
+            }*/
         }
         else
         {
