@@ -75,24 +75,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }*/
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.L) && (!(dirX > 0f)) && !(dirX < 0f))
         {
             mineSoundEffect.Play();
             terrainhandler.RemoveTile(playerposX + 1, playerposY - 1);
             terrainhandler.RemoveTile(playerposX + 1, playerposY);
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.J) && (!(dirX > 0f)) && !(dirX < 0f))
         {
             mineSoundEffect.Play();
             terrainhandler.RemoveTile(playerposX - 1, playerposY - 1);
             terrainhandler.RemoveTile(playerposX - 1, playerposY);
         }
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.I) && (!(dirX > 0f)) && !(dirX < 0f))
         {
             mineSoundEffect.Play();
             terrainhandler.RemoveTile(playerposX, playerposY + 1);
         }
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.K) && (!(dirX > 0f)) && !(dirX < 0f))
         {
             mineSoundEffect.Play();
             terrainhandler.RemoveTile(playerposX, playerposY - 2);
@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.idle;
         }
-        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L))
+        if ((Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L)) && (!(dirX > 0f)) && !(dirX < 0f))
         {
             state = MovementState.mining;
             if (Input.GetKey(KeyCode.L))

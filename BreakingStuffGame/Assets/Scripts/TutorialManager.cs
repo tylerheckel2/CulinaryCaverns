@@ -96,7 +96,7 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "Double tap Space to double jump.";
                 break;
             case 4:
-                instructionText.text = "Mine dirt, purple rock, and ore blocks inside the cavern by pressing I for blocks above, K for blocks below, J for blocks to the left, and L for blocks to the right. (Press T to advance)";
+                instructionText.text = "While stationary, you can mine dirt, purple rock, and ore blocks inside the cavern by pressing I to mine up, K to mine down, J to mine left, and L to mine right. (Press T to advance)";
                 break;
             case 5:
                 instructionText.text = "You can walk over the items the blocks drop to collect them. (Press T to advance)";
