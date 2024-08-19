@@ -111,7 +111,7 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "You can then enter the cavern to collect the necessary items and bring them back to the house you spawned in to advance to the next level. (Press T to advance)";
                 break;
             case 9:
-                instructionText.text = "You can only break blocks within bedrock barriers of the cavern and there will be elevating platforms placed at both ends to help you navigate its depths. (Press T to advance)";
+                instructionText.text = "You can only break blocks within the bedrock barriers of the cavern and there will be elevating platforms placed at both ends to help you navigate its depths. (Press T to advance)";
                 break;
             case 10:
                 instructionText.text = "Tutorial Complete! Whenever you are ready, press T to advance to the first level.";
