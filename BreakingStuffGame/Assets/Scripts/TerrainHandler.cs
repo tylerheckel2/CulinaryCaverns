@@ -243,7 +243,7 @@ public class TerrainHandler : MonoBehaviour
             {
                 newTile.AddComponent<BoxCollider2D>();
                 newTile.GetComponent<BoxCollider2D>().size = Vector2.one;
-                newTile.tag = "Ground";
+                newTile.tag = "Block";
             }
 
             int spriteIndex = Random.Range(0, tile.tileSprites.Length);

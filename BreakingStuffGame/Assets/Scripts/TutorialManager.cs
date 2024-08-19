@@ -12,6 +12,8 @@ public class TutorialManager : MonoBehaviour
 
     public Finish finish;
 
+    public PlayerMovement playerMovement;
+
     void Start()
     {
         ShowInstruction();
@@ -34,11 +36,16 @@ public class TutorialManager : MonoBehaviour
                     ProceedToNextStep();
                 break;
             case 3:
-                if (Input.GetMouseButtonDown(0))
-                    ProceedToNextStep();
+                if (!playerMovement.IsGrounded())
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        ProceedToNextStep();
+                    }
+                }
                 break;
             case 4:
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.T))
                     ProceedToNextStep();
                 break;
             case 5:
@@ -46,7 +53,7 @@ public class TutorialManager : MonoBehaviour
                     ProceedToNextStep();
                 break;
             case 6:
-                if (Input.GetKeyDown(KeyCode.T))
+                if (Input.GetKeyDown(KeyCode.E))
                     ProceedToNextStep();
                 break;
             case 7:
@@ -58,6 +65,14 @@ public class TutorialManager : MonoBehaviour
                     ProceedToNextStep();
                 break;
             case 9:
+                if (Input.GetKeyDown(KeyCode.T))
+                    ProceedToNextStep();
+                break;
+            case 10:
+                if (Input.GetKeyDown(KeyCode.T))
+                    ProceedToNextStep();
+                break;
+            case 11:
                 if (Input.GetKeyDown(KeyCode.T))
                     ProceedToNextStep();
                 break;
@@ -78,24 +93,30 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "Press Space to jump.";
                 break;
             case 3:
-                instructionText.text = "Click on blocks inside the cavern to mine them and walk over the items they drop to collect them.";
+                instructionText.text = "Double tap Space to double jump.";
                 break;
             case 4:
-                instructionText.text = "Press E to toggle your inventory on and off to keep track of the items you have collected.";
+                instructionText.text = "Mine dirt, purple rock, and ore blocks inside the cavern by pressing I for blocks above, K for blocks below, J for blocks to the left, and L for blocks to the right. (Press T to advance)";
                 break;
             case 5:
-                instructionText.text = "When you spawn into a level, you will be prompted with an order to collect a certain number of various food ore. (Press T to advance)";
+                instructionText.text = "You can walk over the items the blocks drop to collect them. (Press T to advance)";
                 break;
             case 6:
-                instructionText.text = "You can then enter the cavern to collect the necessary items and bring them back to the spawn point to advance to the next level. (Press T to advance)";
+                instructionText.text = "Press E to toggle your inventory on and off to keep track of the items you have collected.";
                 break;
             case 7:
-                instructionText.text = "You can only break blocks within the cavern and there will be elevating platforms placed at both ends of the cavern to help you navigate through its depths. (Press T to advance)";
+                instructionText.text = "When you spawn into a level, you will be prompted with an order to collect a certain number of various food ore. (Press T to advance)";
                 break;
             case 8:
-                instructionText.text = "Tutorial Complete! Whenever you are ready, press T to advance to the first level.";
+                instructionText.text = "You can then enter the cavern to collect the necessary items and bring them back to the house you spawned in to advance to the next level. (Press T to advance)";
                 break;
             case 9:
+                instructionText.text = "You can only break blocks within bedrock barriers of the cavern and there will be elevating platforms placed at both ends to help you navigate its depths. (Press T to advance)";
+                break;
+            case 10:
+                instructionText.text = "Tutorial Complete! Whenever you are ready, press T to advance to the first level.";
+                break;
+            case 11:
                 instructionText.text = "Good luck and have fun! Level 1 Loading...";
                 finish.UnlockNewLevel();
                 Invoke("ProceedToNextLevel", 1f);

@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     private bool hit;
     public bool onGround;
+    private bool doubleJump;
 
     public int playerRange;
     public Vector2Int mousePos;
@@ -44,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        int playerposX = Mathf.RoundToInt(transform.position.x-0.5f);
+        int playerposY = Mathf.RoundToInt(transform.position.y-0.5f);
         mousePos.x = Mathf.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - 0.5f);
         mousePos.y = Mathf.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - 0.5f);
 
@@ -63,28 +66,65 @@ public class PlayerMovement : MonoBehaviour
             chatBubbleShowing = !chatBubbleShowing;
         }
 
-        if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 0.1f)
+        /*if (Vector2.Distance(transform.position, mousePos) <= playerRange && Vector2.Distance(transform.position, mousePos) > 0.1f)
         {
             if (hit)
             {
                 mineSoundEffect.Play();
-                terrainhandler.RemoveTile(mousePos.x, mousePos.y);
+                *//*terrainhandler.RemoveTile(mousePos.x, mousePos.y);*//*
             }
+        }*/
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            mineSoundEffect.Play();
+            terrainhandler.RemoveTile(playerposX + 1, playerposY - 1);
+            terrainhandler.RemoveTile(playerposX + 1, playerposY);
+        }
+        if (Input.GetKey(KeyCode.J))
+        {
+            mineSoundEffect.Play();
+            terrainhandler.RemoveTile(playerposX - 1, playerposY - 1);
+            terrainhandler.RemoveTile(playerposX - 1, playerposY);
+        }
+        if (Input.GetKey(KeyCode.I))
+        {
+            mineSoundEffect.Play();
+            terrainhandler.RemoveTile(playerposX, playerposY + 1);
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            mineSoundEffect.Play();
+            terrainhandler.RemoveTile(playerposX, playerposY - 2);
         }
 
         inventory.inventoryUI.SetActive(inventoryShowing);
 
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (IsGrounded() && !Input.GetButton("Jump"))
         {
-            jumpSoundEffect.Play();
-            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
+            doubleJump = false;
         }
 
-        UpdateAnimationState();
+        if (Input.GetButtonDown("Jump"))
+        {
+
+            if (IsGrounded() || doubleJump)
+            {
+                jumpSoundEffect.Play();
+                playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
+                doubleJump = !doubleJump;
+            }
+        }
+
+        /*if (Input.GetButtonDown("Jump") && playerRigidBody.velocity.y > 0f)
+        {
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, playerRigidBody.velocity.y * 0.5f);
+        }*/
+
+            UpdateAnimationState();
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return onGround;
     }
@@ -122,14 +162,14 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.idle;
         }
-        if (hit)
+        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L))
         {
             state = MovementState.mining;
-            if (dirX > 0f)
+            if (Input.GetKey(KeyCode.L))
             {
                 sprite.flipX = false;
             }
-            else if (dirX > 0f)
+            else if (Input.GetKey(KeyCode.J))
             {
                 sprite.flipX = true;
             }

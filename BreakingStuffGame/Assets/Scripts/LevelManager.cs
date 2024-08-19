@@ -183,7 +183,7 @@ public class LevelManager : MonoBehaviour
                 instructionText.text = "Enter the cavern to your right to find and collect the requested items.";
                 break;
             case 2:
-                instructionText.text = "Great job! You have collected the necessary items. Bring them back to Sam to complete the level.";
+                instructionText.text = "Great job! You have collected the necessary items. Enter the house you spawned in to bring them back to Sam and complete the level.";
                 finish.finishSoundEffect.Play();
                 break;
             case 3:
