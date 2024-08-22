@@ -154,7 +154,7 @@ public class PlayerInventory : MonoBehaviour
             added = true;
         }
         if (!added) {
-            for (int y = inventoryHeight - 1; y > 0; y--)
+            for (int y = inventoryHeight - 1; y >= 0; y--)
             {
                 if (added)
                     break;
@@ -197,7 +197,7 @@ public class PlayerInventory : MonoBehaviour
     
     public Vector2Int Contains(ItemClass item)
     {
-        for (int y = inventoryHeight - 1; y > 0; y--)
+        for (int y = inventoryHeight - 1; y >= 0; y--)
         {
             for (int x = 0; x < inventoryWidth; x++)
             {
