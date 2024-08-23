@@ -126,12 +126,12 @@ TextureImporter:
       name: keycaps_for_tutorial_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 29
-        width: 74
-        height: 68
+        x: 12
+        y: 34
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: keycaps_for_tutorial_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 97
-        width: 73
-        height: 66
+        x: 96
+        y: 99
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: keycaps_for_tutorial_2
       rect:
         serializedVersion: 2
-        x: 94
-        y: 32
-        width: 68
-        height: 63
+        x: 96
+        y: 34
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: keycaps_for_tutorial_3
       rect:
         serializedVersion: 2
-        x: 172
-        y: 32
-        width: 67
-        height: 65
+        x: 174
+        y: 34
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: keycaps_for_tutorial_4
       rect:
         serializedVersion: 2
-        x: 326
-        y: 33
-        width: 72
-        height: 63
+        x: 330
+        y: 35
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: keycaps_for_tutorial_5
       rect:
         serializedVersion: 2
-        x: 403
-        y: 33
-        width: 71
-        height: 64
+        x: 406
+        y: 35
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: keycaps_for_tutorial_6
       rect:
         serializedVersion: 2
-        x: 401
-        y: 99
-        width: 72
-        height: 64
+        x: 406
+        y: 100
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: keycaps_for_tutorial_7
       rect:
         serializedVersion: 2
-        x: 478
-        y: 32
-        width: 67
-        height: 66
+        x: 480
+        y: 34
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: keycaps_for_tutorial_8
       rect:
         serializedVersion: 2
-        x: 250
-        y: 97
-        width: 72
-        height: 65
+        x: 255
+        y: 99
+        width: 63
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

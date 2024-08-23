@@ -87,7 +87,7 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "Hello, and welcome to Culinary Caverns! The village has found a mythical food cavern and we need your help to find food to save our population. Press T to advance to the tutorial.";
                 break;
             case 1:
-                instructionText.text = "Press A or D to move left or right.";
+                instructionText.text = "Press <sprite name=\"keycaps_for_tutorial_0\"> or <sprite name=\"keycaps_for_tutorial_3\"> to move left or right.";
                 break;
             case 2:
                 instructionText.text = "Press Space to jump.";
@@ -96,7 +96,7 @@ public class TutorialManager : MonoBehaviour
                 instructionText.text = "Double tap Space to double jump.";
                 break;
             case 4:
-                instructionText.text = "While stationary, you can mine dirt, purple rock, and ore blocks inside the cavern by pressing I to mine up, K to mine down, J to mine left, and L to mine right. (Press T to advance)";
+                instructionText.text = "While stationary, you can mine dirt, purple rock, and ore blocks inside the cavern by pressing  <sprite name=\"keycaps_for_tutorial_6\">   to mine up,  <sprite name=\"keycaps_for_tutorial_5\">  to mine down,  <sprite name=\"keycaps_for_tutorial_4\">  to mine left, and  <sprite name=\"keycaps_for_tutorial_7\">  to mine right. (Press T to advance)";
                 break;
             case 5:
                 instructionText.text = "You can walk over the items the blocks drop to collect them. (Press T to advance)";
