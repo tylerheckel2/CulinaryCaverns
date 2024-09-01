@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource jumpSoundEffect;
     public AudioSource mineSoundEffect;
 
-    private enum MovementState { idle, running, runningMining, jumping, falling, mining }
+    private enum MovementState { idle, running, runningMining, jumping, falling, mining, digging }
 
     private void Start()
     {
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.idle;
         }
-        if ((Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L)))
+        if ((Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L)))
         {
             state = MovementState.mining;
             if (Input.GetKey(KeyCode.L))
@@ -175,6 +175,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 sprite.flipX = true;
             }
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            state = MovementState.digging;
         }
 
         anim.SetInteger("State", (int)state);

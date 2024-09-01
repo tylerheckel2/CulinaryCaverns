@@ -103,7 +103,7 @@ public class ChatBubble : MonoBehaviour
         switch (currentStep)
         {
             case 0:
-                instructionText.text = "Press T to Talk.";
+                instructionText.text = "Press  <sprite name=\"keycaps_for_tutorial_export_updated_1\">  to Talk.";
                 break;
             case 1:
                 if (levelOne)

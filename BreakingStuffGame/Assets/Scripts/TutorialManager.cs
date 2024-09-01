@@ -84,37 +84,37 @@ public class TutorialManager : MonoBehaviour
         switch (currentStep)
         {
             case 0:
-                instructionText.text = "Hello, and welcome to Culinary Caverns! The village has found a mythical food cavern and we need your help to find food to save our population. Press T to advance to the tutorial.";
+                instructionText.text = "Hello, and welcome to Culinary Caverns! The village has found a mythical food cavern and we need your help to find food to save our population. Press <sprite name=\"keycaps_for_tutorial_export_updated_1\"> to advance to the tutorial.";
                 break;
             case 1:
                 instructionText.text = "Press <sprite name=\"keycaps_for_tutorial_0\"> or <sprite name=\"keycaps_for_tutorial_3\"> to move left or right.";
                 break;
             case 2:
-                instructionText.text = "Press Space to jump.";
+                instructionText.text = "Press <sprite name=\"keycaps_for_tutorial_export_updated_2\"> to jump.";
                 break;
             case 3:
-                instructionText.text = "Double tap Space to double jump.";
+                instructionText.text = "Double tap <sprite name=\"keycaps_for_tutorial_export_updated_2\"> to double jump.";
                 break;
             case 4:
-                instructionText.text = "While stationary, you can mine dirt, purple rock, and ore blocks inside the cavern by pressing  <sprite name=\"keycaps_for_tutorial_6\">   to mine up,  <sprite name=\"keycaps_for_tutorial_5\">  to mine down,  <sprite name=\"keycaps_for_tutorial_4\">  to mine left, and  <sprite name=\"keycaps_for_tutorial_7\">  to mine right. (Press T to advance)";
+                instructionText.text = "Break dirt, purple rock, and ore blocks inside the cavern to your right by pressing  <sprite name=\"keycaps_for_tutorial_6\">   to mine up,  <sprite name=\"keycaps_for_tutorial_5\">  to mine down,  <sprite name=\"keycaps_for_tutorial_4\">  to mine left, and  <sprite name=\"keycaps_for_tutorial_7\">  to mine right. (Press <sprite name=\"keycaps_for_tutorial_export_updated_1\"> to advance)";
                 break;
             case 5:
-                instructionText.text = "You can walk over the items the blocks drop to collect them. (Press T to advance)";
+                instructionText.text = "You can walk over the items the blocks drop to collect them. (Press  <sprite name=\"keycaps_for_tutorial_export_updated_1\">  to advance)";
                 break;
             case 6:
-                instructionText.text = "Press E to toggle your inventory on and off to keep track of the items you have collected.";
+                instructionText.text = "Press <sprite name=\"keycaps_for_tutorial_export_updated_0\"> to toggle your inventory on and off to keep track of the items you have collected.";
                 break;
             case 7:
-                instructionText.text = "When you spawn into a level, you will be prompted with an order to collect a certain number of various food ore. (Press T to advance)";
+                instructionText.text = "When you spawn into a level, you will be prompted with an order to collect a certain number of various food ore. (Press <sprite name=\"keycaps_for_tutorial_export_updated_1\"> to advance)";
                 break;
             case 8:
-                instructionText.text = "You can then enter the cavern to collect the necessary items and bring them back to the house you spawned in to advance to the next level. (Press T to advance)";
+                instructionText.text = "You can then enter the cavern to collect the necessary items and bring them back to the house you spawned in to advance to the next level. (Press  <sprite name=\"keycaps_for_tutorial_export_updated_1\">  to advance)";
                 break;
             case 9:
-                instructionText.text = "You can only break blocks within the bedrock barriers of the cavern and there will be elevating platforms placed at both ends to help you navigate its depths. (Press T to advance)";
+                instructionText.text = "You can only break blocks within the bedrock barriers of the cavern and there will be elevating platforms placed at both ends to help you navigate its depths. (Press <sprite name=\"keycaps_for_tutorial_export_updated_1\"> to advance)";
                 break;
             case 10:
-                instructionText.text = "Tutorial Complete! Whenever you are ready, press T to advance to the first level.";
+                instructionText.text = "Tutorial Complete! Whenever you are ready, press  <sprite name=\"keycaps_for_tutorial_export_updated_1\">  to advance to the first level.";
                 break;
             case 11:
                 instructionText.text = "Good luck and have fun! Level 1 Loading...";
